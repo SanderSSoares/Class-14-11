@@ -3,7 +3,7 @@
 pragma solidity ^0.8.0;
 
 //Define Airline contract
-Contract Airline{
+contract Airline{
 
     address public owner;
     uint public ownerBalance;
@@ -18,7 +18,7 @@ Contract Airline{
     uint public flightCount;
 
     event FlightAdded(uint flightId, string destination, uint price, uint totalSeats);
-    event FlightBooked(add, ress customer, uint flightId, uint numberOfSeats, uint totalCost);
+    event FlightBooked(address customer, uint flightId, uint numberOfSeats, uint totalCost);
     event PaymentReceived(address customer, uint amount);
     event FlightCancelled(address customer, uint flightId, uint refundedAmount);
     modifier onlyOwner() {
@@ -28,5 +28,16 @@ Contract Airline{
 
     constructor(){
         owner= msg.sender;
+    }
+
+    function addFlight(string memory _destination, uint _price, uint _totalSeats) public onlyOwner {
+        flights[flightCount] = Flight(_destination, _price, _totalSeats, 0);
+        emit FlightAdded(flightCount, _destination, _price, _totalSeats);
+        flightCount++;
+    }
+
+    function bookFlight(uint _flightId, uint, _numberOfSeats) public payable {
+        require(_flightId < flightCount, "Invalid FlightID");
+        Flight storage flight = flights[_flightId];
     }
 }
