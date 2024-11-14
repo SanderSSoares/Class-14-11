@@ -158,6 +158,24 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_flightId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_numberOfSeats",
+						"type": "uint256"
+					}
+				],
+				"name": "cancelBooking",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "flightCount",
 				"outputs": [
@@ -205,6 +223,35 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_flightId",
+						"type": "uint256"
+					}
+				],
+				"name": "getFlightDetails",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "destination",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "bookedSeatsAvailable",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "owner",
 				"outputs": [
@@ -228,6 +275,13 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "withdrawBalance",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
@@ -259,11 +313,11 @@
 	},
 	"sources": {
 		"contracts/AirlineBookingSystem.sol": {
-			"keccak256": "0x0d8daa6dae0c040c77ddf45bb80b2b94e350b57941e18eff04e88104ae37f3e7",
+			"keccak256": "0x5dbb91b50097678844373e82e1b1511c4781d808b6d110883b3f087820308542",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://84a9277536fca7d3ebd065967232db94a1b03cf0550750eec831aa528a9a2b39",
-				"dweb:/ipfs/QmUg9PYDy9qqex4dmHk43xb3CMbCiVV22aJC3httGBYQ1w"
+				"bzz-raw://8cd9e4c69c6ad24f82bfafaaeedd71db7720142107887850b1a4ff90ad67063f",
+				"dweb:/ipfs/QmVWC5BU1Z29RMgLMx3Dnef7vPFKtoewBK4RCbiKf7sDDJ"
 			]
 		}
 	},
