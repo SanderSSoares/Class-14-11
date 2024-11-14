@@ -36,8 +36,14 @@ contract Airline{
         flightCount++;
     }
 
-    function bookFlight(uint _flightId, uint, _numberOfSeats) public payable {
+    function bookFlight(uint _flightId, uint _numberOfSeats) public payable {
         require(_flightId < flightCount, "Invalid FlightID");
         Flight storage flight = flights[_flightId];
+        uint totalCost = flight.price*_numberOfSeats;
+        require(msg.value == totalCost, "Incorrent payment amount");
+        flight.bookedSeats += _numberOfSeats;
+        ownerBalance += msg.value;
+        emit FlightBooked(msg.sender, _flightId, _numberOfSeats, totalCost);
+        emit PaymentReceived(msg.sender, msg.value);
     }
 }
